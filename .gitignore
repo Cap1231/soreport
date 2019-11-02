@@ -1,0 +1,12 @@
+# directry
+import/
+output/
+logic/
+.vscode/
+__pycache__/
+
+# Excel file
+*.xlsx
+
+# Json data
+result.json

@@ -31,7 +31,7 @@ class AnalyzeExcel:
   def __init__(self, file_name):
     self.import_dir = os.path.join(cwd, 'import', last_month)
     self.import_file = os.path.join(self.import_dir, file_name)
-    self.wb = xw.Book(self.import_file)
+    # self.wb = xw.Book(self.import_file)
 
   def find_team(self, description, service_group):
     try:
@@ -638,8 +638,9 @@ class SoReport:
       [''], ["id"], ["other"], ["total"]   
       ]
 
-    # application team (Other以外) を縦に登録
+    # application team (Other以外) を縦に登録 & 幅13に設定
     sheet.range('B2').value = arr
+    sheet.range('B2').columns.rng.column_width = 13
 
     # 年月とアプリ毎のチケット数を格納する配列
     list_ticket = [[] for i in range(len(arr))]
@@ -732,6 +733,7 @@ class SoReport:
 
     # application team (Other以外) を縦に登録
     sheet.range('B3').value = arr_app
+    sheet.range('B3').columns.rng.column_width = 13
 
     # 年月とアプリ毎のチケット数を格納する配列
     list_ticket = [[] for i in range(len(arr_app) + 1)]
